@@ -1,0 +1,336 @@
+/*----------------------------------------------------------
+  Inspired by/taken code where offered from:
+  Eric Meyer  :: http://meyerweb.com
+  HTML5 Doctor  :: http://html5doctor.com
+  and the HTML5 Boilerplate :: http://html5boilerplate.com
+-------------------------------------------------------------------------------*/
+/* Reset everything...
+-------------------------------------------------------------------------------*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    vertical-align: baseline;
+    background: transparent;
+  }
+  
+  main, article, aside, figure, footer, header, nav, section, details, summary, hgroup {
+    display: block;
+  }
+  
+  html,
+  body {
+    cursor: default;
+  }
+  
+  /* Set all boxes to border boxes
+    http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  html {
+    box-sizing: border-box;
+    overflow-y: scroll;/* force a vertical scrollbar to prevent a jumpy page */
+    height: 100%;
+    min-height: 100%;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  /* Responsive images and other embedded objects */
+  img, object, embed {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Set all un-ordered lists to unbulletted */
+  ul {
+    list-style: none;
+  }
+  ul.bullets, ol {
+    list-style: initial;
+    padding-left: 4em;
+  }
+  ul.bullets ul, ul ol, ol ol {
+    padding-left: 2em;
+  }
+  
+  blockquote, q {
+    quotes: "“" "”" "‘" "’";
+  }
+  
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+  
+  blockquote.quotes:before,
+  q.quotes:before {
+    content: open-quote;
+  }
+  blockquote.quotes:after,
+  q.quotes:after {
+    content: close-quote;
+  }
+  
+  a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+  }
+  
+  del {
+    text-decoration: line-through;
+  }
+  
+  abbr[title], dfn[title] {
+    border-bottom: 0.0625em dotted #000;
+    cursor: help;
+  }
+  
+  /* tables still need cellspacing="0" in the markup */
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: inherit;
+  }
+  th {
+    font-weight: bold;
+    vertical-align: bottom;
+  }
+  td {
+    font-weight: normal;
+    vertical-align: top;
+  }
+  td, td img {
+    vertical-align: top;
+  }
+  
+  hr {
+    display: block;
+    height: 0.0625em;
+    border: 0;
+    border-top: 0.0625em solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+  }
+  
+  input, select, img, button, textarea {
+    vertical-align: middle;
+  }
+  
+  /*
+  pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: pre-line;
+    word-wrap: break-word;
+  }*/
+  
+  small {
+    font-size: 0.85em;
+  }
+  
+  strong, em {
+    font: inherit;
+  }
+  
+  sub, sup {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  
+  pre, code, kbd, samp, var {
+    font-family: monospace, sans-serif;
+    font-size: 0.8em;
+    cursor: text;
+  }
+  
+  .clickable, a[href], label[for], input[type="button"], input[type="submit"], input[type="checkbox"], input[type="radio"], input[type="file"], button {
+    cursor: pointer;
+  }
+  
+  input[type="radio"], input[type="checkbox"] {
+    margin-top: -0.35em;
+  }
+  
+  select, input, textarea, button {
+    font: inherit;
+    padding: 0;
+    margin: 0;
+  }
+  
+  button[disabled], input[disabled] {
+    cursor: default;
+  }
+  
+  /* make buttons play nice in IE */
+  button, input[type="button"], input[type="submit"] { 
+    width: auto;
+    overflow: visible;
+  }
+  
+  .clearfix:after { 
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  #header {
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+  }
+  .topbar {
+    display: inline-block;
+    background-color: #000;
+    width: 100%;
+    height: auto;
+    color: #fff;
+    display: table;
+  }
+  .button {
+    float: left;
+    padding: 15px 0px 0px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+  }
+  #logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav li a {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    height: auto;
+    padding: 10px 15px;
+    display: block;
+  }
+  .navigation {
+    display: inline-block;
+    background-color: #000;
+  }
+  .search_bar {
+    width: 100%;
+    margin: auto;
+    float: left;
+    padding: 0px 0px 30px 15px;
+    box-sizing: border-box;
+  }
+  .search_bar input {
+    width: 99%;
+    height: 40px;
+    border-radius: 2px;
+    border: none;
+    padding: 0px 0px 0px 25px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: #383636;
+    background-image: url(/img/search.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+  ::placeholder {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 200;
+    color: #fff;
+  }
+  .section-one {
+    background-color: #000;
+    width: 100%;
+    height: auto;
+  }
+  .center {
+    margin:10px auto;
+    display:block;
+  }
+  h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+  }
+  h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 200;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0px 0px 0px; 
+  }
+  h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgb(128, 125, 125);
+    text-align: center;
+    padding: 10px 0px 0px 0px; 
+  }
+  .link {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-align: center;
+    text-decoration: none;
+    padding: 40px 0px 0px 0px;
+  }
+  .section-two {
+    background-color: rgba(247, 246, 244, 0.646);
+    width: 100%;
+    height: auto;
+  }
+  .align {
+    margin:10px auto;
+    display:block;
+  }
+
+  h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #000;
+    text-align: center;
+    padding: 60px 0px 0px 0px;
+  }
+  h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 200;
+    color: #000;
+    text-align: center;
+    padding: 10px 0px 0px 0px; 
+  }
+  h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgb(128, 125, 125);
+    text-align: center;
+    padding: 10px 0px 0px 0px; 
+  }
+  .section-three {
+    background-color: rgba(247, 246, 244, 0.646);
+    width: 100%;
+    height: auto;
+  }
+  .centrado{
+    margin:10px auto;
+    display:block;
+}
